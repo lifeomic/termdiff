@@ -1,5 +1,7 @@
 ![GitHub](https://img.shields.io/github/license/lifeomic/termdiff.svg?style=for-the-badge)
 ![Travis (.org) branch](https://img.shields.io/travis/lifeomic/termdiff/master.svg?style=for-the-badge)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/lifeomic/termdiff.svg?color=blue&style=for-the-badge)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@lifeomic/termdiff.svg?color=orange&style=for-the-badge)
 
 # TermDiff
 
