@@ -126,5 +126,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-* The output format was inspired by the [JSON Patch](https://tools.ietf.org/html/draft-ietf-appsawg-json-patch-08) proposal
+- The output format was inspired by the [JSON Patch](https://tools.ietf.org/html/draft-ietf-appsawg-json-patch-08) proposal
 
