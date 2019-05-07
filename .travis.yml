@@ -1,4 +1,20 @@
 language: node_js
-
+node_js:
+- '8'
+- '10'
+- '11'
+script:
+- yarn test
 cache:
   yarn: true
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    repo: lifeomic/termdiff
