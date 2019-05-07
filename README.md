@@ -82,13 +82,13 @@ yarn test
 
 Coding style is enforced through `eslint`:
 
-```
+```bash
 yarn lint
 ```
 
 You can invoke the following to style your code:
 
-```
+```bash
 yarn lint --fix
 ```
 
@@ -127,4 +127,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - The output format was inspired by the [JSON Patch](https://tools.ietf.org/html/draft-ietf-appsawg-json-patch-08) proposal
-
