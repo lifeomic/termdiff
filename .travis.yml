@@ -18,3 +18,4 @@ deploy:
   on:
     tags: true
     repo: lifeomic/termdiff
+    node: "10"
