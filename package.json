@@ -1,6 +1,6 @@
 {
   "name": "@lifeomic/termdiff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compare ontologies and migrate between them.",
   "main": "index.js",
   "repository": "git@github.com:lifeomic/termdiff.git",
