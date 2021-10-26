@@ -4,3 +4,7 @@ node_modules/
 
 .nyc_output
 coverage
+yarn-error.log
+
+index.js
+index.d.ts

@@ -23,13 +23,13 @@ yarn add @lifeomic/termdiff
 
 Import the `diff` function:
 
-```js
-const { diff } = require('termdiff');
+```ts
+import { diff } from 'termdiff';
 ```
 
 Apply it to create a changeset:
 
-```js
+```ts
 const changeset = diff([{ 'foo': 'bar'}], [{'qux': 'baz'}])
 ```
 
@@ -74,7 +74,7 @@ yarn install
 
 ## Testing
 
-We use `ava` for testing and enforce 100% code coverage using `nyc`:
+We use `jest` for testing and enforce 100% code coverage:
 
 ```bash
 yarn test
@@ -96,11 +96,7 @@ yarn lint --fix
 
 ## Deployment
 
-Deployments are automated using [Travis CI](https://travis-ci.org/). Run the following to trigger a new release:
-
-```bash
-yarn version
-```
+Deployments are automated using [GitHub Actions](https://github.com/features/actions). Update the version in `package.json` to release a new version
 
 See the section on [versioning](#versioning) to learn more.
 
