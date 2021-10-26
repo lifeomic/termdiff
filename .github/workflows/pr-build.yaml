@@ -21,8 +21,6 @@ jobs:
         env:
           LAMBDA_REMOTE_DOCKER: true
         run: yarn test
-      - name: Coverage
-        run: yarn coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v1.1.2
         with:
