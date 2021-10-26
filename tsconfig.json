@@ -1,0 +1,9 @@
+{
+  "extends": "@lifeomic/typescript-config",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "module": "CommonJS",
+    "noEmit": true,
+    "declaration": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "@lifeomic/standards"
+  ],
+  "env": {
+    "jest": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "preset": "@lifeomic/jest-config",
+  "maxWorkers": 1,
+  "collectCoverage": true,
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "coverageDirectory": "<rootDir>/.nyc_output",
+  "restoreMocks": true,
+  "resetMocks": true,
+  "testMatch": ["<rootDir>/index.test.ts"],
+  "verbose": true
+}

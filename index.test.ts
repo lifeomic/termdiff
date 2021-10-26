@@ -1,191 +1,189 @@
-const test = require('ava');
+import { diff } from './index';
 
-const { diff } = require('./index');
-
-test('diff: empty', t => {
-  const exp = [ ];
-  t.deepEqual(exp, diff());
+test('diff: empty', () => {
+  const exp: [] = [];
+  expect(diff()).toStrictEqual(exp);
 });
 
-test('diff: add', t => {
+test('diff: add', () => {
   const input = [
     {
 
-    }
+    },
   ];
   const exp = [
     {
       'op': 'add',
-      'value': {}
-    }
+      'value': {},
+    },
   ];
-  t.deepEqual(exp, diff(input));
+  expect(diff(input)).toStrictEqual(exp);
 });
 
-test('diff: multiple adds', t => {
+test('diff: multiple adds', () => {
   const input = [
     {
-      '#': 1
+      '#': 1,
     },
     {
-      '#': 2
+      '#': 2,
     },
     {
-      '#': 3
-    }
+      '#': 3,
+    },
   ];
   const exp = [
     {
       'op': 'add',
       'value': {
-        '#': 1
-      }
+        '#': 1,
+      },
     },
     {
       'op': 'add',
       'value': {
-        '#': 2
-      }
+        '#': 2,
+      },
     },
     {
       'op': 'add',
       'value': {
-        '#': 3
-      }
-    }
+        '#': 3,
+      },
+    },
   ];
-  t.deepEqual(exp, diff(input));
+  expect(diff(input)).toStrictEqual(exp);
 });
 
-test('diff: remove', t => {
+test('diff: remove', () => {
   const first = [
     {
 
-    }
+    },
   ];
-  const second = [
+  const second: never[] = [
 
   ];
   const exp = [
     {
       'op': 'remove',
-      'value': {}
-    }
+      'value': {},
+    },
   ];
-  t.deepEqual(exp, diff(first, second));
+  expect(diff(first, second)).toStrictEqual(exp);
 });
 
-test('diff: multiple removes', t => {
+test('diff: multiple removes', () => {
   const input = [
     {
-      '#': 1
+      '#': 1,
     },
     {
-      '#': 2
+      '#': 2,
     },
     {
-      '#': 3
-    }
+      '#': 3,
+    },
   ];
   const exp = [
     {
       'op': 'remove',
       'value': {
-        '#': 1
-      }
+        '#': 1,
+      },
     },
     {
       'op': 'remove',
       'value': {
-        '#': 2
-      }
+        '#': 2,
+      },
     },
     {
       'op': 'remove',
       'value': {
-        '#': 3
-      }
-    }
+        '#': 3,
+      },
+    },
   ];
-  t.deepEqual(exp, diff(input, []));
+  expect(diff(input, [])).toStrictEqual(exp);
 });
 
-test('diff: mixed', t => {
+test('diff: mixed', () => {
   const first = [
     {
-      '#': 1
+      '#': 1,
     },
     {
-      '#': 2
-    }
+      '#': 2,
+    },
   ];
   const second = [
     {
-      '#': 2
+      '#': 2,
     },
     {
-      '#': 3
-    }
+      '#': 3,
+    },
   ];
   const exp = [
     {
       'op': 'add',
       'value': {
-        '#': 3
-      }
+        '#': 3,
+      },
     },
     {
       'op': 'remove',
       'value': {
-        '#': 1
-      }
-    }
+        '#': 1,
+      },
+    },
   ];
-  t.deepEqual(exp, diff(first, second));
+  expect(diff(first, second)).toStrictEqual(exp);
 });
 
-test('diff: duplicate', t => {
+test('diff: duplicate', () => {
   const first = [
     {
-      '#': 1
-    }
+      '#': 1,
+    },
   ];
   const second = [
     {
-      '#': 1
-    }
+      '#': 1,
+    },
   ];
-  t.deepEqual([], diff(first, second));
+  expect(diff(first, second)).toStrictEqual([]);
 });
 
-test('diff: complex', t => {
+test('diff: complex', () => {
   const first = [
     {
       'equivalence': 'subsumes',
       'source': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44.1'
+        'code': 'G44.1',
       },
       'target': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44'
-      }
+        'code': 'G44',
+      },
     },
     {
       'equivalence': 'narrower',
       'source': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44'
+        'code': 'G44',
       },
       'target': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44.1'
-      }
-    }
+        'code': 'G44.1',
+      },
+    },
   ];
   const second = [
     {
@@ -193,27 +191,27 @@ test('diff: complex', t => {
       'source': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44.1'
+        'code': 'G44.1',
       },
       'target': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44'
-      }
+        'code': 'G44',
+      },
     },
     {
       'equivalence': 'specializes',
       'source': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44'
+        'code': 'G44',
       },
       'target': {
         'type': 'coding',
         'system': 'http://hl7.org/fhir/sid/icd-10',
-        'code': 'G44.1'
-      }
-    }
+        'code': 'G44.1',
+      },
+    },
   ];
   const exp = [
     {
@@ -223,14 +221,14 @@ test('diff: complex', t => {
         'source': {
           'type': 'coding',
           'system': 'http://hl7.org/fhir/sid/icd-10',
-          'code': 'G44'
+          'code': 'G44',
         },
         'target': {
           'type': 'coding',
           'system': 'http://hl7.org/fhir/sid/icd-10',
-          'code': 'G44.1'
-        }
-      }
+          'code': 'G44.1',
+        },
+      },
     },
     {
       'op': 'remove',
@@ -239,15 +237,15 @@ test('diff: complex', t => {
         'source': {
           'type': 'coding',
           'system': 'http://hl7.org/fhir/sid/icd-10',
-          'code': 'G44'
+          'code': 'G44',
         },
         'target': {
           'type': 'coding',
           'system': 'http://hl7.org/fhir/sid/icd-10',
-          'code': 'G44.1'
-        }
-      }
-    }
+          'code': 'G44.1',
+        },
+      },
+    },
   ];
-  t.deepEqual(exp, diff(first, second));
+  expect(diff(first, second)).toStrictEqual(exp);
 });
